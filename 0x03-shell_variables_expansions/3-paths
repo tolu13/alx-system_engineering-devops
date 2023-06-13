@@ -1,0 +1,2 @@
+#!/bin/basj
+echo $PATH | wc-l
