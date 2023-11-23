@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# A bash script that displays number from 1-20
+
+num_count=1
+#use a while loop to iterate
+while [ $num_count -le 20 ]
+do
+ echo "$num_count"
+ case $num_count in
+  "4") echo "bad luck from China";;
+      "9") echo "bad luck from Japan";;
+          "17") echo "bad luck from Italy";;
+	    esac
+	      (( num_count++ ))
+	      done
