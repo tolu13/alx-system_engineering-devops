@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A bash script that displays Best School 10 times using a for loop
+
+# the number of messsage to be printed
+msg_count=10
+for (( i=1; i<=msg_count; i++ ))
+do
+ echo "Best School"
+done
