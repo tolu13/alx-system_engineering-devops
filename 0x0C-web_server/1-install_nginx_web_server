@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# this script installs Nginx to listen on port 80
+# and when querying with get return html content
+
+apt-get update -y
+
+apt-get install nginx -y
+
+echo 'Hello World!' > /var/www/html/index.html
+
+service nginx restart
