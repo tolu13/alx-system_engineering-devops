@@ -1,0 +1,36 @@
+#!/bin/bash
+# Function to display information about a subdomain
+
+display_info() {
+    subdomain=$1
+    domain=$2
+
+    # Use dig to get information about the subdomain
+    result=$(dig +short $subdomain.$domain)
+
+    # Extract the record type and destination from the dig result
+    record_type=$(echo "$result" | awk '{print $2}')
+    destination=$(echo "$result" | awk '{print $1}')
+
+    # Display the information
+    echo "The subdomain $subdomain is a $record_type record and points to $destination"
+}
+
+# Main script
+
+# Check if the number of arguments is correct
+if [ "$#" -eq 1 ]; then
+    # If only the domain is provided, display information for default subdomains
+    display_info www $1
+    display_info lb-01 $1
+    display_info web-01 $1
+    display_info web-02 $1
+elif [ "$#" -eq 2 ]; then
+    # If both domain and subdomain are provided, display information for the specified subdomain
+    display_info $2 $1
+else
+    # If the number of arguments is incorrect, display an error message
+    echo "Usage: $0 domain [subdomain]"
+    exit 1
+fi
+
