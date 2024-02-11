@@ -13,7 +13,7 @@ display_info() {
     destination=$(echo "$result" | awk '{print $1}')
 
     # Display the information
-    echo "The subdomain $subdomain is a $record_type record and points to $destination"
+    echo "The subdomain $subdomain is a A$record_type record and points to $destination"
 }
 
 # Main script
