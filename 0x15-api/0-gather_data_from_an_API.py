@@ -14,8 +14,10 @@ if __name__ == "__main__":
         sys.exit(1)
 
     employee_id = sys.argv[1]
-    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employee_id)
-    todos_url = 'https://jsonplaceholder.typicode.com/todos?userId={}'.format(employee_id)
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'
+                                                              .format(employee_id)
+    todos_url = 'https://jsonplaceholder.typicode.com/todos?userId={}'
+                                                                      .format(employee_id)
 
     # Fetch user data
     user_response = requests.get(user_url)
@@ -31,8 +33,8 @@ if __name__ == "__main__":
     done_tasks = sum(1 for todo in todos_data if todo['completed'])
 
     # Display information
-    print("Employee {} is done with tasks({}/{}):".format(employee_name, done_tasks, total_tasks))
+    print("Employee {} is done with tasks({}/{}):"
+                                                 .format(employee_name, done_tasks, total_tasks))
     for todo in todos_data:
         if todo['completed']:
             print("\t{}".format(todo['title']))
-
